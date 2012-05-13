@@ -24,3 +24,7 @@ following schema:
 
   For now, the starting state of the Turing machine tape can be declared as a
 list when an instance of the Machine class is declared.
+
+Example Machine:
+
+  You can run the example machine by executing example.py
