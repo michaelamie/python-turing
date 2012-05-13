@@ -41,4 +41,5 @@ string 'h' is reserved for the halt state.
 
 
 Example Machine:
-  You can run the example machine by executing example.py
+
+  You can run the example machine by executing example.py.
