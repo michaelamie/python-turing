@@ -25,6 +25,17 @@ following schema:
   For now, the starting state of the Turing machine tape can be declared as a
 list when an instance of the Machine class is declared.
 
+Actions:
+  The simulation expects the follow strings in the action field:
+    - '>' (Move tape head right)
+    - '<' (Move tape head left)
+
+States:
+  Any string can be used to represent a state in the state field, but the the
+string 'h' is reserved for the halt state.
+  
+
+
 Example Machine:
 
   You can run the example machine by executing example.py
