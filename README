@@ -1,0 +1,26 @@
+-------------------------------------------------------------------------------
+ python-turing: A really, really simple Turing machine implemented in Python. 
+-------------------------------------------------------------------------------
+
+Notes:
+
+  Eventually, I would like to get arround to adding some proper exception 
+handling for errors and that sort of thing.
+
+Directions:
+
+  Action tables are stored in an sqlite db in a table called "action" with the
+following schema:
+
+########################
+# Field Name 	# Type #
+########################
+# state      	# TEXT #
+# symbol	# TEXT #
+# state_new	# TEXT #
+# symbol_new	# TEXT #
+# action	# TEXT #
+########################
+
+  For now, the starting state of the Turing machine tape can be declared as a
+list when an instance of the Machine class is declared.
