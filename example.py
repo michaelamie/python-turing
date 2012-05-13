@@ -6,4 +6,3 @@ machine = Machine( getdata('example.db'),
                    10 )
 view = TapeView()
 machine.run(view)
-del view
