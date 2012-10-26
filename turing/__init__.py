@@ -92,7 +92,9 @@ class TapeView(object):
 def getdata(filename):
   db = sqlite3.connect(filename)
   cursor = db.cursor()
-  cursor.execute('SELECT * FROM action ORDER BY state')
+  query = 'SELECT state, symbol, state_new, symbol_new, action'
+  query += ' FROM action ORDER BY state'
+  cursor.execute(query)
   data = []
   for row in cursor:
     data.append(row)
