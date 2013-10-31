@@ -9,12 +9,12 @@ if __name__ == '__main__':
 
     # Set up the machine
     action_table = TableData.load("example.db")
+    tape_view = TapeView()
     tape_data = ['1', '1', '0', '1', '1', '0', '1', '0', '1', '1']
     tape_position = 10
-    tape_view = TapeView()
    
     # Create Turing machine instance
-    machine = Machine(action_table, tape_data, tape_position, tape_view)
+    machine = Machine(action_table, tape_view, tape_data, tape_position)
 
     # Begin machine run loop
     machine.run(.5)

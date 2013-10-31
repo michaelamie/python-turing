@@ -5,7 +5,7 @@ from tape import Tape
 class Machine(object):
     
     def __init__(self, 
-        data=None, cells=None, position=0, tape_view=None):
+        data=None, tape_view=None, cells=[' '], position=1):
 
         self.tape = Tape(cells, position)
         self.states = {}

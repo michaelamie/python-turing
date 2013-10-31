@@ -1,6 +1,6 @@
 class Tape(object):
 
-    def __init__(self, cells=[], position=0):
+    def __init__(self, cells=[' '], position=1):
         self.position = position
         self.cells = cells
 
