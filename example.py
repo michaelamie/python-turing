@@ -8,13 +8,13 @@ from turing.tape_view import TapeView
 if __name__ == '__main__':
 
     # Set up the machine
-    actionTable = TableData("example.db")
-    tapeData = ['1', '1', '0', '1', '1', '0', '1', '0', '1', '1']
-    tapePosition = 10
-    tapeView = TapeView()
+    action_table = TableData("example.db")
+    tape_data = ['1', '1', '0', '1', '1', '0', '1', '0', '1', '1']
+    tape_position = 10
+    tape_view = TapeView()
     
     # Create Turing machine instance
-    machine = Machine(actionTable(), tapeData, tapePosition, tapeView)
+    machine = Machine(action_table(), tape_data, tape_position, tape_view)
 
     # Begin machine run loop
     machine.run()
