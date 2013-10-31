@@ -17,8 +17,6 @@ class Machine(object):
         assert self.view is not None, \
         "Tape view argument cannot be None"
         
-        self.step_delay = 1
-
         for row in data:
             state = row[0]
             symbol = row[1]
@@ -34,10 +32,10 @@ class Machine(object):
                     (state_new, symbol_new, action)}
         
 
-    def run(self):
+    def run(self, step_delay=1):
         self.view.update(self.tape.display_string(), 
                          self.tape.position, self.state)
-        time.sleep(self.step_delay)
+        time.sleep(step_delay)
         while self.state != u'h':
             symbol = self.states.get(self.state).get(self.tape.get_symbol())
             if symbol != None:
@@ -49,4 +47,4 @@ class Machine(object):
                     self.tape.left()
             self.view.update(self.tape.display_string(), 
                              self.tape.position, self.state)
-            time.sleep(self.step_delay)
+            time.sleep(step_delay)

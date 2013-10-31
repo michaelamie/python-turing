@@ -1,21 +1,25 @@
 import sqlite3
 
 
-def load_data(filename):
-    data = []
+class TableData(object):
+
+    @staticmethod
+    def load(filename):
+        data = []
     
-    db = sqlite3.connect(filename)
-    cursor = db.cursor()
+        db = sqlite3.connect(filename)
+        cursor = db.cursor()
     
-    query = "SELECT state, symbol, state_new, symbol_new, action"
-    query += " FROM action ORDER BY state"
+        query = "SELECT state, symbol, state_new, symbol_new, action"
+        query += " FROM action ORDER BY state"
     
-    cursor.execute(query)
+        cursor.execute(query)
     
-    for row in cursor:
-        data.append(row)
+        for row in cursor:
+            data.append(row)
     
-    cursor.close()
-    db.close()
+        cursor.close()
+        db.close()
     
-    return data
+        return data
+        
