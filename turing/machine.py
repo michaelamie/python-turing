@@ -25,11 +25,13 @@ class Machine(object):
             action = row[4]
 
             if self.states.get(state):
-                self.states[state].update({symbol: 
-                    (state_new, symbol_new, action)})
+                self.states[state].update({
+                    symbol: (state_new, symbol_new, action)
+                })
             else:
-                self.states[state] = {symbol: 
-                    (state_new, symbol_new, action)}
+                self.states[state] = {
+                    symbol: (state_new, symbol_new, action)
+                }
         
 
     def run(self, step_delay=1):
