@@ -5,7 +5,7 @@ from tape import Tape
 class Machine(object):
     
     def __init__(self, 
-        data=None, tape_view=None, cells=[' '], position=1):
+        data=None, tape_view=None, cells=[None], position=1):
 
         self.tape = Tape(cells, position)
         self.states = {}
@@ -16,6 +16,8 @@ class Machine(object):
         "Action table data argument cannot be None"
         assert self.view is not None, \
         "Tape view argument cannot be None"
+        assert position >= 1 and position <= len(cells), \
+        "Position must be an existing cell position"
         
         for row in data:
             state = row[0]
@@ -38,15 +40,17 @@ class Machine(object):
         self.view.update(self.tape.display_string(), 
                          self.tape.position, self.state)
         time.sleep(step_delay)
+        
         while self.state != u'h':
-            symbol = self.states.get(self.state).get(self.tape.get_symbol())
-            if symbol != None:
-                self.state = symbol[0]
-                self.tape.write(symbol[1])
-                if symbol[2] == u'>':
+            transition = self.states.get(self.state).get(self.tape.get_symbol())
+            if transition != None:
+                self.state = transition[0]
+                self.tape.write(transition[1])
+                if transition[2] == u'>':
                     self.tape.right()
-                elif symbol[2] == u'<':
+                elif transition[2] == u'<':
                     self.tape.left()
-            self.view.update(self.tape.display_string(), 
-                             self.tape.position, self.state)
+                self.view.update(self.tape.display_string(), 
+                             self.tape.position, self.state)            
+            
             time.sleep(step_delay)

@@ -1,8 +1,8 @@
 class Tape(object):
 
-    def __init__(self, cells=[' '], position=1):
-        self.position = position
+    def __init__(self, cells=[None], position=1):
         self.cells = cells
+        self.position = position
 
     def length(self):
         return len(self.cells)
