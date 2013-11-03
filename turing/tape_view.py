@@ -12,7 +12,7 @@ class TapeView(object):
 
     def __del__(self):
         if not self.debug:
-            self.window.addstr(2, 0, "Simulation finished.\n  (enter to exit)")
+            self.window.addstr(4, 0, "Simulation finished.\n  (enter to exit)")
             self.window.refresh()
             self.window.getch()
             curses.echo()
